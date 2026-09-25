@@ -608,7 +608,7 @@ async function askCoach() {
 
     try {
 
-        const response = await fetch("https://stufit.onrender.com/", {
+        const response = await fetch("https://stufit.onrender.com/ai-coach", {
             method: "POST",
 
             headers: {
