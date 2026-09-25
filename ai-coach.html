@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StuFit - AI Coach</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">StuFit</div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="nutrition.html">Nutrition</a>
+        <a href="ai-coach.html">AI Coach</a>
+        <a href="workout.html">Workout</a>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+    </div>
+</nav>
+
+<div class="page-container">
+
+    <h1>AI Coach</h1>
+
+    <p class="page-description">
+        Ask your personal wellness coach for simple suggestions.
+    </p>
+
+    <div class="coach-box">
+
+        <h2>🤖 Personal AI Coach</h2>
+
+        <p>
+            Ask about workouts, nutrition or maintaining
+            a healthy student routine.
+        </p>
+
+        <input
+            type="text"
+            id="coachInput"
+            placeholder="Ask your AI Coach..."
+        >
+
+        <button onclick="askCoach()" class="main-btn">
+            Ask Coach
+        </button>
+
+        <div id="coachResponse" class="coach-response"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

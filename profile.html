@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StuFit - Profile</title>
+
+    <!-- MAIN STUFIT STYLE -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PROFILE ONLY STYLES -->
+    <style>
+
+        /* ================= PROFILE PAGE ================= */
+
+        .profile-container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .profile-page-title {
+            font-size: 38px;
+            margin-bottom: 8px;
+
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #ec4899
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-subtitle {
+            color: #777;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+
+        /* ================= PROFILE TOP ================= */
+
+        .profile-top {
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+
+            box-shadow:
+                0 12px 35px rgba(50, 40, 100, 0.10);
+
+            border: 1px solid rgba(108, 99, 255, 0.08);
+
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #6c63ff,
+                #8b5cf6,
+                #ec4899
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+
+            font-size: 38px;
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px rgba(108, 99, 255, 0.20);
+        }
+
+        .profile-info h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+
+            color: #333;
+        }
+
+        .profile-info p {
+            color: #777;
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 18px;
+            color: #333;
+        }
+
+
+        /* ================= DETAILS ================= */
+
+        .details-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.92);
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(108, 99, 255, 0.08);
+
+            box-shadow:
+                0 10px 30px rgba(50, 40, 100, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(50, 40, 100, 0.12);
+        }
+
+        .detail-card span {
+            display: block;
+
+            color: #888;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+        }
+
+        .detail-card strong {
+            font-size: 17px;
+
+            color: #4f46e5;
+        }
+
+
+        /* ================= STREAK ================= */
+
+        .streak-box {
+            background: linear-gradient(
+                135deg,
+                #6c63ff,
+                #8b5cf6,
+                #ec4899
+            );
+
+            color: white;
+
+            padding: 27px;
+
+            border-radius: 22px;
+
+            margin-top: 28px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 10px 25px rgba(108, 99, 255, 0.20);
+        }
+
+        .streak-left h2 {
+            margin-bottom: 8px;
+        }
+
+        .streak-left p {
+            opacity: 0.9;
+        }
+
+        .streak-number {
+            font-size: 50px;
+            font-weight: 800;
+
+            text-align: center;
+        }
+
+        .streak-box > div:last-child p {
+            text-align: center;
+            opacity: 0.9;
+        }
+
+
+        /* ================= TASK SECTION ================= */
+
+        .task-section {
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 22px;
+
+            padding: 28px;
+
+            margin-top: 28px;
+
+            box-shadow:
+                0 10px 30px rgba(50, 40, 100, 0.08);
+
+            border:
+                1px solid rgba(108, 99, 255, 0.08);
+        }
+
+        .task-heading {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .task-heading h2 {
+            color: #4f46e5;
+        }
+
+        .task-heading span {
+            background: #f1efff;
+
+            color: #6c63ff;
+
+            padding: 7px 14px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* ================= TASK LIST ================= */
+
+        .task-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+        .task {
+            border:
+                1px solid #eee;
+
+            border-radius: 15px;
+
+            padding: 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            transition: 0.25s;
+
+            background: #fff;
+        }
+
+        .task:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(50, 40, 100, 0.08);
+        }
+
+
+        /* ================= CHECK CIRCLE ================= */
+
+        .task-check {
+            width: 25px;
+            height: 25px;
+
+            border:
+                2px solid #6c63ff;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            transition: 0.2s;
+        }
+
+        .task.completed .task-check {
+            background: linear-gradient(
+                135deg,
+                #6c63ff,
+                #ec4899
+            );
+
+            border-color: #6c63ff;
+        }
+
+        .task.completed .task-check::after {
+            content: "✓";
+
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .task.completed .task-name {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .task-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .task-time {
+            font-size: 12px;
+
+            color: #999;
+
+            margin-top: 4px;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .progress-area {
+            margin-top: 25px;
+        }
+
+        .progress-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            color: #555;
+
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 12px;
+
+            background: #eeeaff;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+
+            width: 0%;
+
+            background: linear-gradient(
+                90deg,
+                #6c63ff,
+                #8b5cf6,
+                #ec4899
+            );
+
+            border-radius: 20px;
+
+            transition: 0.5s;
+        }
+
+
+        /* ================= MONTHLY ================= */
+
+        .monthly-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+        .monthly-card {
+            padding: 21px;
+
+            border-radius: 18px;
+
+            background: #f8f7ff;
+
+            border-left:
+                5px solid #6c63ff;
+
+            transition: 0.3s;
+        }
+
+        .monthly-card:nth-child(2) {
+            border-left-color: #ec4899;
+            background: #fff5fb;
+        }
+
+        .monthly-card:nth-child(3) {
+            border-left-color: #8b5cf6;
+            background: #f7f5ff;
+        }
+
+        .monthly-card:nth-child(4) {
+            border-left-color: #6c63ff;
+        }
+
+        .monthly-card:nth-child(5) {
+            border-left-color: #ec4899;
+            background: #fff5fb;
+        }
+
+        .monthly-card:nth-child(6) {
+            border-left-color: #8b5cf6;
+            background: #f7f5ff;
+        }
+
+        .monthly-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(50, 40, 100, 0.08);
+        }
+
+        .monthly-card h3 {
+            margin-bottom: 8px;
+
+            color: #333;
+        }
+
+        .monthly-card p {
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .details-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .monthly-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .task-list {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .profile-container {
+                width: 94%;
+                margin: 35px auto;
+            }
+
+            .profile-page-title {
+                font-size: 32px;
+            }
+
+            .profile-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .monthly-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .streak-box {
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 15px;
+            }
+
+            .task-section {
+                padding: 22px;
+            }
+
+            .task-heading {
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            StuFit
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="nutrition.html">
+                Nutrition
+            </a>
+
+            <a href="ai-coach.html">
+                AI Coach
+            </a>
+
+            <a href="workout.html">
+                Workout
+            </a>
+
+        </div>
+
+
+        <div class="nav-buttons">
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="register.html" class="register-btn">
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="profile-container">
+
+
+        <h1 class="profile-page-title">
+            My Profile
+        </h1>
+
+        <p class="profile-subtitle">
+            Your student fitness journey in one place.
+        </p>
+
+
+
+        <!-- ================= PROFILE TOP ================= -->
+
+        <div class="profile-top">
+
+            <div class="profile-photo">
+                MF
+            </div>
+
+
+            <div class="profile-info">
+
+                <h2>
+                    Mehreen Firdous
+                </h2>
+
+                <p>
+                    CSE (AI & ML) Student
+                </p>
+
+                <p>
+                    2nd Year • Anurag Engineering College
+                </p>
+
+                <p>
+                    Focus: Studies + Fitness + Consistency
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PERSONAL DETAILS ================= -->
+
+        <h2 class="section-title">
+            Personal Details
+        </h2>
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-card">
+
+                <span>
+                    Name
+                </span>
+
+                <strong>
+                    Mehreen Firdous
+                </strong>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <span>
+                    Course
+                </span>
+
+                <strong>
+                    B.Tech CSE (AI & ML)
+                </strong>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <span>
+                    Year
+                </span>
+
+                <strong>
+                    2nd Year
+                </strong>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <span>
+                    College
+                </span>
+
+                <strong>
+                    Anurag Engineering College
+                </strong>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <span>
+                    Fitness Level
+                </span>
+
+                <strong>
+                    Beginner
+                </strong>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <span>
+                    Main Goal
+                </span>
+
+                <strong>
+                    Healthy & Active Lifestyle
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= STREAK ================= -->
+
+        <div class="streak-box">
+
+
+            <div class="streak-left">
+
+                <h2>
+                    🔥 Workout Streak
+                </h2>
+
+                <p>
+                    Complete your daily workout to keep your streak alive!
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="streak-number"
+                    id="streakNumber"
+                >
+                    0
+                </div>
+
+                <p>
+                    Days
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= WEEKLY TASKS ================= -->
+
+        <div class="task-section">
+
+
+            <div class="task-heading">
+
+                <h2>
+                    Weekly Tasks
+                </h2>
+
+                <span>
+                    7 Day Plan
+                </span>
+
+            </div>
+
+
+            <div class="task-list">
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Monday – Full Body Workout
+                        </div>
+
+                        <div class="task-time">
+                            20–30 minutes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Tuesday – Walking
+                        </div>
+
+                        <div class="task-time">
+                            30 minutes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Wednesday – Lower Body
+                        </div>
+
+                        <div class="task-time">
+                            20–30 minutes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Thursday – Stretching
+                        </div>
+
+                        <div class="task-time">
+                            15–20 minutes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Friday – Upper Body
+                        </div>
+
+                        <div class="task-time">
+                            20–30 minutes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Saturday – Fun Cardio
+                        </div>
+
+                        <div class="task-time">
+                            20–30 minutes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task">
+
+                    <div class="task-check"></div>
+
+                    <div>
+
+                        <div class="task-name">
+                            Sunday – Recovery
+                        </div>
+
+                        <div class="task-time">
+                            Light stretching / rest
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= PROGRESS ================= -->
+
+            <div class="progress-area">
+
+
+                <div class="progress-top">
+
+                    <span>
+                        Weekly Progress
+                    </span>
+
+                    <span id="progressText">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= MONTHLY CHALLENGES ================= -->
+
+        <div class="task-section">
+
+
+            <div class="task-heading">
+
+                <h2>
+                    Monthly Challenges
+                </h2>
+
+                <span>
+                    This Month
+                </span>
+
+            </div>
+
+
+            <div class="monthly-grid">
+
+
+                <div class="monthly-card">
+
+                    <h3>
+                        🏃 Active Days
+                    </h3>
+
+                    <p>
+                        Try to stay active regularly throughout the month.
+                    </p>
+
+                </div>
+
+
+
+                <div class="monthly-card">
+
+                    <h3>
+                        💧 Hydration
+                    </h3>
+
+                    <p>
+                        Keep water nearby during college and study sessions.
+                    </p>
+
+                </div>
+
+
+
+                <div class="monthly-card">
+
+                    <h3>
+                        🧘 Flexibility
+                    </h3>
+
+                    <p>
+                        Include simple stretching and recovery sessions.
+                    </p>
+
+                </div>
+
+
+
+                <div class="monthly-card">
+
+                    <h3>
+                        🚶 Walking
+                    </h3>
+
+                    <p>
+                        Add regular walking whenever your college schedule allows.
+                    </p>
+
+                </div>
+
+
+
+                <div class="monthly-card">
+
+                    <h3>
+                        📚 Study Balance
+                    </h3>
+
+                    <p>
+                        Keep workouts manageable around assignments and exams.
+                    </p>
+
+                </div>
+
+
+
+                <div class="monthly-card">
+
+                    <h3>
+                        🔥 Consistency
+                    </h3>
+
+                    <p>
+                        Focus on completing small tasks consistently instead of doing everything at once.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const tasks =
+            document.querySelectorAll(".task");
+
+        const progressFill =
+            document.getElementById("progressFill");
+
+        const progressText =
+            document.getElementById("progressText");
+
+        const streakNumber =
+            document.getElementById("streakNumber");
+
+
+        let completedTasks =
+            JSON.parse(
+                localStorage.getItem(
+                    "stufitCompletedTasks"
+                )
+            ) || [];
+
+
+        let streak =
+            Number(
+                localStorage.getItem(
+                    "stufitStreak"
+                )
+            ) || 0;
+
+
+
+        /* ================= UPDATE PROGRESS ================= */
+
+        function updateProgress() {
+
+            let completed =
+                document.querySelectorAll(
+                    ".task.completed"
+                ).length;
+
+
+            let total =
+                tasks.length;
+
+
+            let percentage =
+                Math.round(
+                    (completed / total) * 100
+                );
+
+
+            progressFill.style.width =
+                percentage + "%";
+
+
+            progressText.innerText =
+                percentage + "%";
+
+        }
+
+
+
+        /* ================= SAVE TASKS ================= */
+
+        function saveTasks() {
+
+            let completed = [];
+
+
+            tasks.forEach(
+                (task, index) => {
+
+                    if (
+                        task.classList.contains(
+                            "completed"
+                        )
+                    ) {
+
+                        completed.push(index);
+
+                    }
+
+                }
+            );
+
+
+            localStorage.setItem(
+                "stufitCompletedTasks",
+                JSON.stringify(completed)
+            );
+
+        }
+
+
+
+        /* ================= LOAD TASKS ================= */
+
+        function loadTasks() {
+
+            completedTasks.forEach(
+                index => {
+
+                    if (tasks[index]) {
+
+                        tasks[index]
+                            .classList
+                            .add("completed");
+
+                    }
+
+                }
+            );
+
+
+            updateProgress();
+
+        }
+
+
+
+        /* ================= TASK CLICK ================= */
+
+        tasks.forEach(
+            (task, index) => {
+
+                task.addEventListener(
+                    "click",
+                    () => {
+
+                        task.classList.toggle(
+                            "completed"
+                        );
+
+
+                        saveTasks();
+
+                        updateProgress();
+
+
+                        let completed =
+                            document.querySelectorAll(
+                                ".task.completed"
+                            ).length;
+
+
+                        if (
+                            completed ===
+                            tasks.length
+                        ) {
+
+                            streak++;
+
+
+                            localStorage.setItem(
+                                "stufitStreak",
+                                streak
+                            );
+
+
+                            streakNumber.innerText =
+                                streak;
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ================= INITIAL LOAD ================= */
+
+        streakNumber.innerText =
+            streak;
+
+
+        loadTasks();
+
+    </script>
+
+</body>
+
+</html>

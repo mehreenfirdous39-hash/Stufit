@@ -1,0 +1,1083 @@
+/* ==========================================
+   STUFIT - COLOURFUL MODERN UI
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9ff, #eef7ff, #fff5fb);
+    color: #202124;
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(100, 100, 255, 0.08);
+
+    box-shadow: 0 5px 25px rgba(72, 61, 139, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #6c63ff,
+        #a855f7,
+        #ec4899
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 15px;
+    font-weight: 600;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6c63ff;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 3px;
+
+    left: 50%;
+    bottom: -8px;
+
+    background: linear-gradient(
+        90deg,
+        #6c63ff,
+        #ec4899
+    );
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* NAV BUTTONS */
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn,
+.register-btn {
+    text-decoration: none;
+
+    padding: 10px 19px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.login-btn {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #6c63ff,
+        #8b5cf6
+    );
+
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.25);
+}
+
+.register-btn {
+    color: #6c63ff;
+
+    background: #f1efff;
+
+    border: 1px solid #ddd7ff;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   HOME HERO
+========================================== */
+
+.hero {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 10%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Decorative circles */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #ddd8ff;
+
+    top: -100px;
+    right: -80px;
+
+    opacity: 0.55;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: #ffd6ea;
+
+    bottom: -100px;
+    left: -70px;
+
+    opacity: 0.55;
+}
+
+.hero-content {
+    max-width: 700px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 68px;
+    line-height: 1.08;
+
+    margin-bottom: 22px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #8b5cf6,
+        #ec4899
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color: #666;
+
+    max-width: 600px;
+
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.main-btn,
+.secondary-btn {
+    display: inline-block;
+
+    padding: 13px 27px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.main-btn {
+    color: white;
+
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #6c63ff,
+        #8b5cf6,
+        #ec4899
+    );
+
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.25);
+}
+
+.secondary-btn {
+    color: #6c63ff;
+
+    background: white;
+
+    border: 1px solid #dcd7ff;
+}
+
+.main-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================
+   FORM PAGES
+========================================== */
+
+.form-container {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #e8e5ff,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #ffe2f0,
+            transparent 35%
+        );
+}
+
+.form-box {
+    width: 450px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(108, 99, 255, 0.12);
+
+    box-shadow:
+        0 20px 50px rgba(76, 61, 139, 0.13);
+}
+
+.form-box h1 {
+    font-size: 32px;
+
+    margin-bottom: 8px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #ec4899
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-box > p {
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.form-box label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #444;
+
+    font-weight: 600;
+}
+
+.form-box input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fafaff;
+
+    transition: 0.3s;
+}
+
+.form-box input:focus {
+    border-color: #8b5cf6;
+
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+
+    background: white;
+}
+
+.form-box .main-btn {
+    width: 100%;
+}
+
+.form-bottom {
+    margin-top: 20px !important;
+
+    text-align: center;
+}
+
+.form-bottom a {
+    color: #6c63ff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+#registerMessage,
+#loginMessage {
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   PAGE CONTAINER
+========================================== */
+
+.page-container {
+    padding: 55px 8%;
+}
+
+.page-container h1 {
+    font-size: 38px;
+
+    margin-bottom: 8px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #ec4899
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-description {
+    color: #777;
+
+    margin-bottom: 35px;
+}
+
+
+/* ==========================================
+   COLOURFUL CARDS
+========================================== */
+
+.card-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.info-card {
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid rgba(108, 99, 255, 0.08);
+
+    box-shadow: 0 10px 30px rgba(50, 40, 100, 0.08);
+
+    transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #e8e5ff;
+
+    right: -30px;
+    top: -30px;
+}
+
+.info-card:nth-child(2)::before {
+    background: #ffe1ef;
+}
+
+.info-card:nth-child(3)::before {
+    background: #dff8ed;
+}
+
+.info-card:nth-child(4)::before {
+    background: #fff0cf;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 35px rgba(50, 40, 100, 0.13);
+}
+
+.info-card h2 {
+    margin-bottom: 14px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.info-card p {
+    color: #666;
+
+    line-height: 1.7;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ==========================================
+   PROFILE
+========================================== */
+
+.locked-box,
+.profile-card {
+    max-width: 650px;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow: 0 12px 35px rgba(50, 40, 100, 0.1);
+
+    border: 1px solid rgba(108, 99, 255, 0.08);
+}
+
+.locked-box p {
+    margin: 20px 0;
+
+    color: #777;
+}
+
+.profile-card {
+    display: none;
+}
+
+.profile-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.profile-item strong {
+    color: #444;
+}
+
+.profile-item span {
+    color: #777;
+
+    text-align: right;
+}
+
+.logout-btn {
+    margin-top: 28px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #ff5f6d,
+        #ff416c
+    );
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   AI COACH
+========================================== */
+
+.coach-box {
+    max-width: 750px;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f5f2ff
+    );
+
+    box-shadow: 0 12px 35px rgba(50, 40, 100, 0.1);
+
+    border: 1px solid #e4ddff;
+}
+
+.coach-box h2 {
+    margin-bottom: 15px;
+
+    color: #4f46e5;
+}
+
+.coach-box p {
+    color: #666;
+
+    line-height: 1.6;
+}
+
+.coach-box input {
+    width: 100%;
+
+    padding: 14px;
+
+    margin: 22px 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.coach-box input:focus {
+    border-color: #8b5cf6;
+
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.coach-response {
+    margin-top: 22px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: #eeeaff;
+
+    color: #5145a5;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 45px 25px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .form-box {
+        width: 100%;
+
+        padding: 28px;
+    }
+
+    .page-container {
+        padding: 40px 25px;
+    }
+}
+/* ================================= */
+/* WORKOUT + CALENDAR LAYOUT */
+/* ================================= */
+
+.workout-calendar-layout {
+    width: 90%;
+    max-width: 1150px;
+    margin: 45px auto;
+
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* ================================= */
+/* WORKOUT SIDE */
+/* ================================= */
+
+.workout-section h1 {
+    color: #2563eb;
+    font-size: 34px;
+    margin-bottom: 6px;
+}
+
+.workout-subtitle {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+.workout-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    min-height: 120px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.07);
+
+    transition: 0.2s;
+}
+
+
+.workout-card:hover {
+    transform: translateY(-4px);
+}
+
+
+.workout-card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+
+.workout-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/* ================================= */
+/* CALENDAR */
+/* ================================= */
+
+.academic-calendar {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+
+.calendar-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.calendar-header h2 {
+    font-size: 21px;
+    color: #333;
+}
+
+
+.calendar-header button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 5px;
+}
+
+
+.calendar-weekdays span {
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #777;
+
+    padding-bottom: 8px;
+}
+
+
+.calendar-day {
+    min-height: 42px;
+
+    border-radius: 8px;
+
+    padding: 6px;
+
+    background: #f8fafc;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.calendar-day:hover {
+    background: #eef4ff;
+}
+
+
+.calendar-day.today {
+    border: 2px solid #2563eb;
+}
+
+
+.calendar-day.exam {
+    background: #fee2e2;
+    border-left: 4px solid #ef4444;
+}
+
+
+.calendar-day.assignment {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+}
+
+
+.calendar-day.normal {
+    background: #dcfce7;
+    border-left: 4px solid #22c55e;
+}
+
+
+.calendar-day.empty {
+    background: transparent;
+    cursor: default;
+}
+
+
+.event-dot {
+    font-size: 9px;
+
+    margin-top: 3px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ================================= */
+/* EVENT INPUT */
+/* ================================= */
+
+.calendar-event {
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #eee;
+}
+
+
+.calendar-event h3 {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+    color: #333;
+}
+
+
+.calendar-event input,
+.calendar-event select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px;
+
+    margin-bottom: 8px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    outline: none;
+}
+
+
+.calendar-event button {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ================================= */
+/* RECOMMENDATION */
+/* ================================= */
+
+.calendar-recommendation {
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #f1f5ff;
+
+    color: #444;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 850px) {
+
+    .workout-calendar-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .workout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .workout-calendar-layout {
+        width: 94%;
+    }
+
+}
+

@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StuFit - Workout</title>
+
+    <!-- MAIN STUFIT CSS -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* ==========================================
+           WORKOUT PAGE
+        ========================================== */
+
+        .workout-page {
+            width: 86%;
+            max-width: 1250px;
+            margin: 45px auto;
+        }
+
+
+        /* ==========================================
+           HEADING
+        ========================================== */
+
+        .workout-heading {
+            margin-bottom: 30px;
+        }
+
+        .workout-heading h1 {
+
+            font-size: 38px;
+
+            margin-bottom: 8px;
+
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #8b5cf6,
+                #ec4899
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .workout-heading p {
+            color: #777;
+            font-size: 16px;
+        }
+
+
+        /* ==========================================
+           WORKOUT CARDS
+        ========================================== */
+
+        .workout-options-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .workout-option-card {
+
+            background: rgba(255, 255, 255, 0.95);
+
+            padding: 28px;
+
+            min-height: 150px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(108, 99, 255, 0.08);
+
+            box-shadow:
+                0 10px 30px rgba(50, 40, 100, 0.08);
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .workout-option-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+
+            background: #e8e5ff;
+
+            right: -25px;
+            top: -25px;
+
+            opacity: 0.8;
+        }
+
+
+        .workout-option-card:nth-child(2)::before {
+            background: #ffe1ef;
+        }
+
+        .workout-option-card:nth-child(3)::before {
+            background: #dff8ed;
+        }
+
+        .workout-option-card:nth-child(4)::before {
+            background: #fff0cf;
+        }
+
+
+        .workout-option-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(50, 40, 100, 0.13);
+        }
+
+
+        .workout-option-card h2 {
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+
+            color: #333;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .workout-option-card p {
+
+            color: #666;
+
+            line-height: 1.6;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* ==========================================
+           BIG CALENDAR SECTION
+        ========================================== */
+
+        .workout-calendar-section {
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            border:
+                1px solid rgba(108, 99, 255, 0.08);
+
+            box-shadow:
+                0 12px 35px rgba(50, 40, 100, 0.10);
+
+            margin-bottom: 50px;
+        }
+
+
+        /* ==========================================
+           CALENDAR TITLE
+        ========================================== */
+
+        .workout-calendar-title {
+            margin-bottom: 25px;
+        }
+
+
+        .workout-calendar-title h2 {
+
+            font-size: 28px;
+
+            margin-bottom: 8px;
+
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #ec4899
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .workout-calendar-title p {
+
+            color: #777;
+
+            line-height: 1.6;
+        }
+
+
+        /* ==========================================
+           CALENDAR WRAPPER
+        ========================================== */
+
+        .workout-calendar-wrapper {
+
+            width: 100%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8f7ff,
+                    #fff5fb
+                );
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            border:
+                1px solid rgba(108, 99, 255, 0.08);
+        }
+
+
+        /* ==========================================
+           CALENDAR HEADER
+        ========================================== */
+
+        .workout-calendar-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .workout-calendar-header h3 {
+
+            font-size: 25px;
+
+            color: #333;
+        }
+
+
+        .workout-month-buttons {
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .workout-month-buttons button {
+
+            width: 42px;
+            height: 42px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6c63ff,
+                    #8b5cf6
+                );
+
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 15px
+                rgba(108, 99, 255, 0.20);
+        }
+
+
+        .workout-month-buttons button:hover {
+
+            transform: translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b52ee,
+                    #7c4ff0
+                );
+        }
+
+
+        /* ==========================================
+           CALENDAR DAYS
+        ========================================== */
+
+        .workout-calendar-days {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(7, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .workout-day-name {
+
+            text-align: center;
+
+            font-weight: 600;
+
+            color: #777;
+
+            padding: 12px 5px;
+
+            font-size: 14px;
+        }
+
+
+        .workout-date {
+
+            min-height: 75px;
+
+            background: white;
+
+            border-radius: 12px;
+
+            border:
+                1px solid #e8e5f5;
+
+            padding: 10px;
+
+            cursor: pointer;
+
+            position: relative;
+
+            transition: 0.2s;
+        }
+
+
+        .workout-date:hover {
+
+            border-color: #8b5cf6;
+
+            transform: scale(1.02);
+
+            box-shadow:
+                0 5px 15px
+                rgba(108, 99, 255, 0.08);
+        }
+
+
+        .workout-date-number {
+
+            font-weight: bold;
+
+            font-size: 16px;
+
+            color: #333;
+        }
+
+
+        /* ==========================================
+           TODAY
+        ========================================== */
+
+        .workout-today {
+
+            background: #eeeaff;
+
+            border:
+                2px solid #6c63ff;
+        }
+
+
+        /* ==========================================
+           SELECTED
+        ========================================== */
+
+        .workout-selected {
+
+            background: #f1efff;
+
+            border:
+                2px solid #8b5cf6;
+        }
+
+
+        /* ==========================================
+           EVENT
+        ========================================== */
+
+        .workout-event {
+
+            margin-top: 8px;
+
+            font-size: 11px;
+
+            padding: 4px 6px;
+
+            border-radius: 6px;
+
+            background: #dcfce7;
+
+            color: #16803c;
+
+            overflow: hidden;
+
+            white-space: nowrap;
+
+            text-overflow: ellipsis;
+        }
+
+
+        /* ==========================================
+           HEAVY DAY
+        ========================================== */
+
+        .workout-heavy-day {
+
+            background: #fff0cf;
+
+            color: #946200;
+        }
+
+
+        /* ==========================================
+           EXAM DAY
+        ========================================== */
+
+        .workout-exam-day {
+
+            background: #ffe1ef;
+
+            color: #be123c;
+        }
+
+
+        /* ==========================================
+           CALENDAR INFO
+        ========================================== */
+
+        .workout-calendar-info {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .workout-info-box {
+
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            background: #f1efff;
+
+            color: #555;
+
+            font-size: 14px;
+
+            border:
+                1px solid #e2ddff;
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 900px) {
+
+            .workout-page {
+                width: 92%;
+            }
+
+            .workout-options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workout-calendar-section {
+                padding: 25px;
+            }
+
+            .workout-calendar-wrapper {
+                padding: 15px;
+            }
+
+            .workout-calendar-days {
+                gap: 6px;
+            }
+
+            .workout-date {
+                min-height: 65px;
+                padding: 7px;
+            }
+
+            .workout-event {
+                font-size: 9px;
+            }
+
+            .workout-day-name {
+                font-size: 11px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .workout-page {
+                width: 94%;
+                margin: 35px auto;
+            }
+
+            .workout-heading h1 {
+                font-size: 32px;
+            }
+
+            .workout-calendar-section {
+                padding: 20px;
+            }
+
+            .workout-calendar-wrapper {
+                padding: 10px;
+            }
+
+            .workout-calendar-header h3 {
+                font-size: 20px;
+            }
+
+            .workout-month-buttons button {
+                width: 36px;
+                height: 36px;
+            }
+
+            .workout-calendar-days {
+                gap: 4px;
+            }
+
+            .workout-date {
+                min-height: 58px;
+                padding: 5px;
+            }
+
+            .workout-date-number {
+                font-size: 13px;
+            }
+
+            .workout-calendar-info {
+                gap: 8px;
+            }
+
+            .workout-info-box {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            StuFit
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="nutrition.html">
+                Nutrition
+            </a>
+
+            <a href="ai-coach.html">
+                AI Coach
+            </a>
+
+            <a href="workout.html">
+                Workout
+            </a>
+
+        </div>
+
+
+        <div class="nav-buttons">
+
+            <a
+                href="login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                class="register-btn"
+            >
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <div class="workout-page">
+
+
+        <!-- ======================================
+             HEADING
+        ======================================= -->
+
+        <div class="workout-heading">
+
+            <h1>
+                Workout
+            </h1>
+
+            <p>
+                Simple workout ideas for students.
+            </p>
+
+        </div>
+
+
+
+        <!-- ======================================
+             WORKOUT OPTIONS
+        ======================================= -->
+
+        <div class="workout-options-grid">
+
+
+            <div class="workout-option-card">
+
+                <h2>
+                    🏃 Warm Up
+                </h2>
+
+                <p>
+                    Start with light movement and stretching before exercising.
+                    This helps your body prepare for the workout.
+                </p>
+
+            </div>
+
+
+
+            <div class="workout-option-card">
+
+                <h2>
+                    💪 Full Body
+                </h2>
+
+                <p>
+                    Try simple beginner-friendly exercises that work different
+                    muscle groups.
+                </p>
+
+            </div>
+
+
+
+            <div class="workout-option-card">
+
+                <h2>
+                    🚶 Walking
+                </h2>
+
+                <p>
+                    Add regular walking breaks between long study sessions
+                    to stay active.
+                </p>
+
+            </div>
+
+
+
+            <div class="workout-option-card">
+
+                <h2>
+                    🧘 Cool Down
+                </h2>
+
+                <p>
+                    Finish your workout with gentle stretching and relaxation.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ======================================
+             BIG DIGITAL CALENDAR
+        ======================================= -->
+
+        <div class="workout-calendar-section">
+
+
+            <div class="workout-calendar-title">
+
+                <h2>
+                    📅 Study & Workout Calendar
+                </h2>
+
+                <p>
+                    Mark your exams and assignments. StuFit can help you avoid
+                    heavy workouts on busy academic days.
+                </p>
+
+            </div>
+
+
+
+            <div class="workout-calendar-wrapper">
+
+
+                <!-- CALENDAR HEADER -->
+
+                <div class="workout-calendar-header">
+
+
+                    <div class="workout-month-buttons">
+
+                        <button
+                            onclick="previousMonth()"
+                        >
+                            ‹
+                        </button>
+
+                    </div>
+
+
+                    <h3 id="monthYear">
+                        September 2026
+                    </h3>
+
+
+                    <div class="workout-month-buttons">
+
+                        <button
+                            onclick="nextMonth()"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CALENDAR -->
+
+                <div
+                    class="workout-calendar-days"
+                    id="calendar"
+                ></div>
+
+
+
+                <!-- INFO -->
+
+                <div class="workout-calendar-info">
+
+
+                    <div class="workout-info-box">
+
+                        📚 Click a date to add your academic event
+
+                    </div>
+
+
+                    <div class="workout-info-box">
+
+                        🟡 Busy academic day
+
+                    </div>
+
+
+                    <div class="workout-info-box">
+
+                        🔴 Exam / Assignment
+
+                    </div>
+
+
+                    <div class="workout-info-box">
+
+                        🟢 Normal workout day
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ORIGINAL FUNCTIONALITY
+    ========================================== -->
+
+    <script>
+
+
+        let currentDate =
+            new Date(2026, 8, 1);
+
+
+        const events = {
+
+            "2026-09-03": {
+
+                text: "SE Exam",
+
+                type: "exam"
+
+            },
+
+
+            "2026-09-07": {
+
+                text: "Assignment",
+
+                type: "heavy"
+
+            }
+
+        };
+
+
+
+        /* ==========================================
+           CREATE CALENDAR
+        ========================================== */
+
+        function createCalendar() {
+
+
+            const calendar =
+                document.getElementById(
+                    "calendar"
+                );
+
+
+            calendar.innerHTML = "";
+
+
+            const year =
+                currentDate.getFullYear();
+
+
+            const month =
+                currentDate.getMonth();
+
+
+
+            const monthNames = [
+
+                "January",
+
+                "February",
+
+                "March",
+
+                "April",
+
+                "May",
+
+                "June",
+
+                "July",
+
+                "August",
+
+                "September",
+
+                "October",
+
+                "November",
+
+                "December"
+
+            ];
+
+
+
+            document.getElementById(
+                "monthYear"
+            ).innerText =
+
+                monthNames[month]
+                + " "
+                + year;
+
+
+
+            const days = [
+
+                "Sun",
+
+                "Mon",
+
+                "Tue",
+
+                "Wed",
+
+                "Thu",
+
+                "Fri",
+
+                "Sat"
+
+            ];
+
+
+
+            /* ======================================
+               DAY NAMES
+            ====================================== */
+
+            days.forEach(day => {
+
+
+                const dayName =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                dayName.className =
+                    "workout-day-name";
+
+
+                dayName.innerText =
+                    day;
+
+
+                calendar.appendChild(
+                    dayName
+                );
+
+
+            });
+
+
+
+            /* ======================================
+               FIRST DAY
+            ====================================== */
+
+            const firstDay =
+
+                new Date(
+                    year,
+                    month,
+                    1
+                ).getDay();
+
+
+
+            const totalDays =
+
+                new Date(
+                    year,
+                    month + 1,
+                    0
+                ).getDate();
+
+
+
+            /* ======================================
+               EMPTY CELLS
+            ====================================== */
+
+            for (
+                let i = 0;
+                i < firstDay;
+                i++
+            ) {
+
+
+                const empty =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                calendar.appendChild(
+                    empty
+                );
+
+
+            }
+
+
+
+            /* ======================================
+               DATES
+            ====================================== */
+
+            for (
+                let day = 1;
+                day <= totalDays;
+                day++
+            ) {
+
+
+                const dateBox =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                dateBox.className =
+                    "workout-date";
+
+
+
+                const number =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                number.className =
+                    "workout-date-number";
+
+
+                number.innerText =
+                    day;
+
+
+                dateBox.appendChild(
+                    number
+                );
+
+
+
+                /* ==================================
+                   DATE KEY
+                ================================== */
+
+                const dateKey =
+
+                    year
+                    + "-"
+                    + String(
+                        month + 1
+                    ).padStart(2, "0")
+                    + "-"
+                    + String(day).padStart(
+                        2,
+                        "0"
+                    );
+
+
+
+                /* ==================================
+                   TODAY
+                ================================== */
+
+                const today =
+                    new Date();
+
+
+
+                if (
+
+                    day === today.getDate()
+
+                    &&
+
+                    month === today.getMonth()
+
+                    &&
+
+                    year === today.getFullYear()
+
+                ) {
+
+                    dateBox.classList.add(
+                        "workout-today"
+                    );
+
+                }
+
+
+
+                /* ==================================
+                   EVENT
+                ================================== */
+
+                if (events[dateKey]) {
+
+
+                    const event =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    event.className =
+                        "workout-event";
+
+
+                    event.innerText =
+                        events[dateKey].text;
+
+
+
+                    if (
+                        events[dateKey].type
+                        === "exam"
+                    ) {
+
+                        event.classList.add(
+                            "workout-exam-day"
+                        );
+
+                    }
+
+
+
+                    if (
+                        events[dateKey].type
+                        === "heavy"
+                    ) {
+
+                        event.classList.add(
+                            "workout-heavy-day"
+                        );
+
+                    }
+
+
+
+                    dateBox.appendChild(
+                        event
+                    );
+
+                }
+
+
+
+                /* ==================================
+                   CLICK DATE
+                ================================== */
+
+                dateBox.onclick =
+                    function () {
+
+
+                        const eventName =
+
+                            prompt(
+                                "Enter Exam / Assignment / Important Event:"
+                            );
+
+
+
+                        if (eventName) {
+
+
+                            events[dateKey] = {
+
+                                text:
+                                    eventName,
+
+                                type:
+                                    "heavy"
+
+                            };
+
+
+                            createCalendar();
+
+                        }
+
+
+                    };
+
+
+
+                calendar.appendChild(
+                    dateBox
+                );
+
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           PREVIOUS MONTH
+        ========================================== */
+
+        function previousMonth() {
+
+
+            currentDate.setMonth(
+
+                currentDate.getMonth()
+                - 1
+
+            );
+
+
+            createCalendar();
+
+        }
+
+
+
+        /* ==========================================
+           NEXT MONTH
+        ========================================== */
+
+        function nextMonth() {
+
+
+            currentDate.setMonth(
+
+                currentDate.getMonth()
+                + 1
+
+            );
+
+
+            createCalendar();
+
+        }
+
+
+
+        /* ==========================================
+           INITIAL CALENDAR
+        ========================================== */
+
+        createCalendar();
+
+
+    </script>
+
+
+</body>
+
+</html>
